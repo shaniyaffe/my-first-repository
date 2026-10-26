@@ -5,3 +5,6 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react()],
 })
+     hello=0
+     my_gr=12
+     print(hello+my_gr)
