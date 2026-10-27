@@ -8,3 +8,4 @@ export default defineConfig({
      hello=0
      my_gr=12
      print(hello+my_gr)
+print("wow!!")
