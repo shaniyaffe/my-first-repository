@@ -1,122 +1,98 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
 
+
+// שלב_ראשון
+
+// function CourseGrade() {
+//   return <h3>ציון: 95</h3>;
+// }
+
+// function ReactCourse() {
+//   return (
+//     <div>
+//       <h2>קורס React</h2>
+//       <CourseGrade />
+//     </div>
+//   );
+// }
+
+// function JavaCourse() {
+//   return <h2>קורס Java</h2>;
+// }
+// שלב_שני
+const books = [
+  {
+    id: 1,
+    title: "לומדים React",
+    author: "דנה לוי",
+    year: 2024,
+    price: 80
+  },
+  {
+    id: 2,
+    title: "מבוא ל־Java",
+    author: "יעל כהן",
+    year: 2023,
+    price: 95
+  },
+  {
+    id: 3,
+    title: "יסודות התכנות",
+    author: "נועה ישראלי",
+    year: 2025,
+    price: 70
+  }
+];
+function BooksTable() {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <table>
+      <thead>
+        <tr>
+          <th>מזהה</th>
+          <th>שם הספר</th>
+          <th>מחברת</th>
+          <th>שנת הוצאה</th>
+          <th>מחיר</th>
+        </tr>
+      </thead>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      <tbody>
+        {books.map((book) => (
+          <tr key={book.id}>
+            <td>{book.id}</td>
+            <td>{book.title}</td>
+            <td>{book.author}</td>
+            <td>{book.year}</td>
+            <td>{book.price}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
 }
 
-export default App
+function CourseDetails(props) {
+  return (
+    <div>
+      <h2>{props.courseName}</h2>
+      <p>ציון: {props.grade}</p>
+    </div>
+  );
+}
+function PersonDetails() { 
+   return (
+    <div dir="rtl">
+      <h1>פרטים אישיים</h1>
+      <p>שם: רוזה</p>
+      <p>גיל: 20</p>
+      {/* שלב_ראשון */}
+      {/* <ReactCourse />
+      <JavaCourse /> */}
+      <CourseDetails courseName="React" grade={95} />
+      <CourseDetails courseName="Java" grade={90} />
+      <BooksTable />
+    </div>
+  );
+}
+
+export default PersonDetails;
